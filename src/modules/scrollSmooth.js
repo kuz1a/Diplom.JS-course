@@ -1,7 +1,7 @@
 const scrollSmooth = () => {
-    const menu = document.querySelector('menu')
+    const menu = document.querySelector('.top-menu')
     const anchors = menu.querySelectorAll('a')
-    const serviceBlock = document.querySelector('.scroll-to')
+    // const serviceBlock = document.querySelector('.scroll-to')
     
     for (let anchor of anchors) {
         anchor.addEventListener('click', function (e) {
@@ -17,17 +17,17 @@ const scrollSmooth = () => {
       
         })
       }
-      serviceBlock.addEventListener('click', function(e){
-        e.preventDefault()
+      // serviceBlock.addEventListener('click', function(e){
+      //   e.preventDefault()
           
-          const blockID = serviceBlock.getAttribute('href')
-          if (document.querySelector(blockID)) {
-              document.querySelector(blockID).scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start'
-                })
-          }
-      })
+      //     const blockID = serviceBlock.getAttribute('href')
+      //     if (document.querySelector(blockID)) {
+      //         document.querySelector(blockID).scrollIntoView({
+      //             behavior: 'smooth',
+      //             block: 'start'
+      //           })
+      //     }
+      // })
   
 }
 export default scrollSmooth
