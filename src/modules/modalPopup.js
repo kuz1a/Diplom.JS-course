@@ -4,7 +4,7 @@ const modalPopup = () => {
     const modalCallback = document.querySelector('.modal-callback')
     const modalOverlay = document.querySelector('.modal-overlay ')
     const modalClose = modalCallback.querySelector('.modal-close')
-    console.log(modalBtn);
+    
     body.addEventListener('click', function(e){
         if (e.target.classList.contains('callback-btn') || e.target.classList.contains('button-services')) {
            modalCallback.style.display = 'block'
