@@ -1,4 +1,4 @@
-
+import sliderMain from './modules/sliderMain'
 import scrollSmoth from "./modules/scrollSmooth";
 
 import modalPopup from './modules/modalPopup'
@@ -11,8 +11,7 @@ scrollSmoth()
 modalPopup()
 tabs()
 validate()
-sendForm({
-    formId: 'callback', 
-})
+sliderMain()
+sendForm()
 
  

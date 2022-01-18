@@ -1,5 +1,5 @@
-const sendForm = ({formId, someElem = []}) => {
-    const form = document.getElementById(formId)
+const sendForm = () => {
+    const form = document.getElementById('callback')
 
     const statusBlock = document.createElement('div')
     const loadText = 'Loading...'
@@ -8,15 +8,17 @@ const sendForm = ({formId, someElem = []}) => {
 
     const validate = (list) => {
         let success = true;
-        return success
-        // if (list[0].value.length > 2 && list[1].value.length > 7) {
-        //     success = true;
-        //     return success
-        // }
-        // else {
-        //     return false
-        // }
+        
+        if (list[0].value.length > 2 && list[1].value.length > 7) {
+            success = true;
+            return success
+        }
+        else {
+            return false
+        }
     }
+
+
 
     const sendData = (data) => {
         return fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -32,7 +34,7 @@ const sendForm = ({formId, someElem = []}) => {
         const formElements = form.querySelectorAll('input')
         
         const formData = new FormData(form)
-        form.reset()
+        
         const formBody = {}
 
         statusBlock.textContent = loadText
@@ -42,16 +44,6 @@ const sendForm = ({formId, someElem = []}) => {
             formBody[key] = value.trim();
         })
 
-        someElem.forEach(elem => {
-            
-            const element = document.getElementById(elem.id)
-            if (elem.type === 'block') {
-                formBody[elem.id] = element.textContent
-
-            } else if (elem.type === 'input'){
-                formBody[elem.id] = element.value
-            }
-        })
 
         if(validate(formElements)) {
             sendData(formBody)
@@ -72,7 +64,7 @@ const sendForm = ({formId, someElem = []}) => {
             statusBlock.textContent = errorText
         }
 
-    }
+    };
     try {
         if (!form) {
             throw new Error('что-то сломалось')
