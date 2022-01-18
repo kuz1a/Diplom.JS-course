@@ -1,5 +1,5 @@
 const sendForm = () => {
-    const form = document.getElementById('callback')
+    const form = document.getElementById('form')
 
     const statusBlock = document.createElement('div')
     const loadText = 'Loading...'
@@ -32,7 +32,7 @@ const sendForm = () => {
 
     const submitForm = () => {
         const formElements = form.querySelectorAll('input')
-        
+    
         const formData = new FormData(form)
         
         const formBody = {}
@@ -50,9 +50,16 @@ const sendForm = () => {
             .then(data => {
                 formElements.forEach(input => {
                     statusBlock.textContent = successText
-                    input.value = ''
+
+                
+                        input.value = ''
+                    
                     setTimeout(()=>{
-                        statusBlock.textContent = '';        
+                        const modalCallback = document.querySelector('.modal-callback')
+                        const modalOverlay = document.querySelector('.modal-overlay ')
+                        statusBlock.textContent = '';
+                        modalCallback.style.display = 'none'
+                        modalOverlay.style.display = 'none'     
                     },3000)
                 })
             })
