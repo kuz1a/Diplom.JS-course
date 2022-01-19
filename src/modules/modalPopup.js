@@ -3,9 +3,10 @@ const modalPopup = () => {
     const modalBtn = document.querySelector('.callback-btn')
     const modalCallback = document.querySelector('.modal-callback')
     const modalOverlay = document.querySelector('.modal-overlay ')
-    const modalClose = modalCallback.querySelector('.modal-close')
+    
     
     body.addEventListener('click', function(e){
+        
         if (e.target.classList.contains('callback-btn') || e.target.classList.contains('button-services')) {
            modalCallback.style.display = 'block'
            modalOverlay.style.display = 'block'
@@ -14,6 +15,11 @@ const modalPopup = () => {
             modalCallback.style.display = 'none'
             modalOverlay.style.display = 'none'
         }
+        if (e.target.classList.contains('fancyboxModal')) {
+            modalCallback.style.display = 'block'
+            modalOverlay.style.display = 'block'
+        }
+        
     })
 
 }
