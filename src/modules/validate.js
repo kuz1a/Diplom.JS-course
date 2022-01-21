@@ -15,7 +15,12 @@ const validate = () => {
     userInput.addEventListener('input', () => {
         let namePlaceholderOne = userInput.getAttribute('placeholder')
         if(namePlaceholderOne === 'Ваше имя') {
-            userInput.value = userInput.value.replace(/[^а-яА-Я\s\-]/g, '').trim()
+            if (userInput.value.charAt(0) === ' ') {
+                userInput.value = ''
+            } else {
+                userInput.value = userInput.value.replace(/[^а-яА-Я\s\-]/g, '')
+            }
+           
         }
     })
 

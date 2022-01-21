@@ -9,7 +9,7 @@ const sendForm = () => {
     const validate = (list) => {
         let success = true;
         
-        if (list[0].value.length > 2 && list[1].value.length > 7) {
+        if (list[0].value.length >= 2 && list[1].value.length > 7) {
             success = true;
             return success
         }
